@@ -1,1 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <title>微薄利商城,分享薅羊毛活动</title>
+  <!--  Meta tags -->
+  <meta name="keywords" content="微薄利,薅羊毛,有奖活动,网上赚钱,天天线报,活动线报,手机赚钱,薅羊毛网站,薅羊毛线报">
+  <meta name="description" content="微薄利商城（www.vblly.com）是发布免费试用活动信息的网站,提供商品限时薅羊毛抢购,限时免费的返利平台。包括大学生用品、免费试用品、母婴床上用品、生活品牌试用、化妆品免费试用活动等,试用中心每天都提供大量免费试用品.专注于手机赚钱的安全又靠谱的免费试用网和试客网站,也是免费试用的试用网和试客网,会员可以限时抢购限时免费的商品！ ">
+  <meta property="og:type" content="WebSite">
+  <meta property="og:url" content="https://www.vblly.com">
+  <meta property="og:title" content="祖龙网">
+  <meta property="og:description" content="微薄利商城（www.vblly.com）是发布免费试用活动信息的网站,提供商品限时薅羊毛抢购,限时免费的返利平台。包括大学生用品、免费试用品、母婴床上用品、生活品牌试用、化妆品免费试用活动等,试用中心每天都提供大量免费试用品.专注于手机赚钱的安全又靠谱的免费试用网和试客网站,也是免费试用的试用网和试客网,会员可以限时抢购限时免费的商品！ ">
+    <!-- Bootstrap CSS -->
+    <link href="https://unpkg.com/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- 自定义样式 -->
+    <style>
+        :root {
+            --primary-color: #333333;
+            --secondary-color: #666666;
+            --accent-color: #007bff;
+            --light-gray: #f8f9fa;
+            --border-gray: #e9ecef;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            color: var(--primary-color);
+        }
+        
+        .hero-section {
+            background: var(--light-gray);
+            color: var(--primary-color);
+            padding: 178px 0 50px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-gray);
+        }
+        
+        .main-container {
+            background: white;
+            margin-top: 0;
+            position: relative;
+            z-index: 10;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        
+        .group-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-gray);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .group-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+        
+        .qr-code-placeholder {
+            width: 120px;
+            height: 120px;
+            background: var(--light-gray);
+            border: 2px dashed var(--border-gray);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            transition: all 0.3s ease;
+            color: var(--secondary-color);
+        }
+        
+        .group-card:hover .qr-code-placeholder {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+        
+        .badge-hot {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            background: var(--light-gray);
+            color: var(--primary-color);
+            border: 1px solid var(--border-gray);
+        }
+        
+        .feature-icon:hover {
+            transform: scale(1.05);
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        
+        .stats-card {
+            background: var(--light-gray);
+            color: var(--primary-color);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-gray);
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            background: white;
+            border-color: var(--accent-color);
+        }
+        
+        .join-btn {
+            background: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .join-btn:hover {
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .tag {
+            background: var(--light-gray);
+            color: var(--secondary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 5px;
+            display: inline-block;
+            margin-bottom: 5px;
+            border: 1px solid var(--border-gray);
+        }
+        
+        .footer {
+            background: var(--light-gray);
+            color: var(--secondary-color);
+            padding: 40px 0 20px;
+            margin-top: 80px;
+            border-top: 1px solid var(--border-gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom" style="background: white; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                微薄利
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active text-dark" href="#groups">微信社群</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#features">特色功能</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#about">关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <!-- 主要内容区域 -->
+    <div class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">
+                <i class="bi bi-cash-coin me-3"></i>薅羊毛微信群大全
+            </h1>
+            <p class="lead mb-4">汇集全网优质优惠信息，省钱达人必备微信群</p>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="input-group input-group-lg">
+                        <input type="text" class="form-control border-secondary" placeholder="搜索感兴趣的群组...">
+                        <button class="btn btn-dark" type="button">
+                            <i class="bi bi-search"></i> 搜索
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要容器 -->
+    <div class="container main-container py-5">
+        <!-- 统计数据 -->
+        <div class="row mb-5">
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="stats-card">
+                    <h3 class="mb-2">2000+</h3>
+                    <p class="mb-0">优质群组</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="stats-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <h3 class="mb-2">500万+</h3>
+                    <p class="mb-0">活跃用户</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="stats-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <h3 class="mb-2">24小时</h3>
+                    <p class="mb-0">实时更新</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div class="stats-card" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    <h3 class="mb-2">2800+</h3>
+                    <p class="mb-0">活跃城市</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 微信群展示区域 -->
+        <section id="groups">
+            <h2 class="text-center mb-4 fw-bold">
+                <i class="bi bi-wechat me-2 text-success"></i>热门微信群
+            </h2>
+            
+            <div class="row">
+                <!-- 群组卡片 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="group-card">
+                        <span class="badge-hot">🔥 热门</span>
+                        <div class="qr-code-placeholder">
+                            <i class="bi bi-qr-code fs-1"></i>
+                        </div>
+                        <h5 class="text-center fw-bold">京东优惠分享群</h5>
+                        <p class="text-center text-muted mb-3">专注京东购物优惠，每日更新</p>
+                        <div class="mb-3 text-center">
+                            <span class="tag">京东</span>
+                            <span class="tag">优惠券</span>
+                            <span class="tag">秒杀</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <small class="text-muted"><i class="bi bi-people-fill me-1"></i> 8,567 人</small>
+                            <small class="text-muted"><i class="bi bi-graph-up me-1"></i> 活跃</small>
+                        </div>
+                        <button class="join-btn w-100">
+                            <i class="bi bi-plus-circle me-2"></i>立即加入
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 群组卡片 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="group-card">
+                        <div class="qr-code-placeholder">
+                            <i class="bi bi-qr-code fs-1"></i>
+                        </div>
+                        <h5 class="text-center fw-bold">淘宝天猫砍价群</h5>
+                        <p class="text-center text-muted mb-3">砍价互助，一起省钱</p>
+                        <div class="mb-3 text-center">
+                            <span class="tag">淘宝</span>
+                            <span class="tag">砍价</span>
+                            <span class="tag">互助</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <small class="text-muted"><i class="bi bi-people-fill me-1"></i> 6,234 人</small>
+                            <small class="text-muted"><i class="bi bi-graph-up me-1"></i> 活跃</small>
+                        </div>
+                        <button class="join-btn w-100">
+                            <i class="bi bi-plus-circle me-2"></i>立即加入
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 群组卡片 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="group-card">
+                        <span class="badge-hot">🔥 热门</span>
+                        <div class="qr-code-placeholder">
+                            <i class="bi bi-qr-code fs-1"></i>
+                        </div>
+                        <h5 class="text-center fw-bold">美团饿了么红包群</h5>
+                        <p class="text-center text-muted mb-3">外卖红包，天天领</p>
+                        <div class="mb-3 text-center">
+                            <span class="tag">外卖</span>
+                            <span class="tag">红包</span>
+                            <span class="tag">美团</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <small class="text-muted"><i class="bi bi-people-fill me-1"></i> 12,890 人</small>
+                            <small class="text-muted"><i class="bi bi-graph-up me-1"></i> 爆满</small>
+                        </div>
+                        <button class="join-btn w-100">
+                            <i class="bi bi-plus-circle me-2"></i>立即加入
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 群组卡片 4 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="group-card">
+                        <div class="qr-code-placeholder">
+                            <i class="bi bi-qr-code fs-1"></i>
+                        </div>
+                        <h5 class="text-center fw-bold">拼多多助力群</h5>
+                        <p class="text-center text-muted mb-3">免费拿商品，助力互助</p>
+                        <div class="mb-3 text-center">
+                            <span class="tag">拼多多</span>
+                            <span class="tag">助力</span>
+                            <span class="tag">免费拿</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <small class="text-muted"><i class="bi bi-people-fill me-1"></i> 9,456 人</small>
+                            <small class="text-muted"><i class="bi bi-graph-up me-1"></i> 活跃</small>
+                        </div>
+                        <button class="join-btn w-100">
+                            <i class="bi bi-plus-circle me-2"></i>立即加入
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 群组卡片 5 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="group-card">
+                        <div class="qr-code-placeholder">
+                            <i class="bi bi-qr-code fs-1"></i>
+                        </div>
+                        <h5 class="text-center fw-bold">游戏福利群</h5>
+                        <p class="text-center text-muted mb-3">游戏礼包、道具优惠</p>
+                        <div class="mb-3 text-center">
+                            <span class="tag">游戏</span>
+                            <span class="tag">礼包</span>
+                            <span class="tag">道具</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <small class="text-muted"><i class="bi bi-people-fill me-1"></i> 4,321 人</small>
+                            <small class="text-muted"><i class="bi bi-graph-up me-1"></i> 活跃</small>
+                        </div>
+                        <button class="join-btn w-100">
+                            <i class="bi bi-plus-circle me-2"></i>立即加入
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 群组卡片 6 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="group-card">
+                        <span class="badge-hot">🔥 热门</span>
+                        <div class="qr-code-placeholder">
+                            <i class="bi bi-qr-code fs-1"></i>
+                        </div>
+                        <h5 class="text-center fw-bold">影视会员优惠群</h5>
+                        <p class="text-center text-muted mb-3">视频会员特价分享</p>
+                        <div class="mb-3 text-center">
+                            <span class="tag">影视</span>
+                            <span class="tag">会员</span>
+                            <span class="tag">优惠</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <small class="text-muted"><i class="bi bi-people-fill me-1"></i> 7,654 人</small>
+                            <small class="text-muted"><i class="bi bi-graph-up me-1"></i> 活跃</small>
+                        </div>
+                        <button class="join-btn w-100">
+                            <i class="bi bi-plus-circle me-2"></i>立即加入
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 特色功能 -->
+        <section id="features" class="mt-5 pt-5">
+            <h2 class="text-center mb-4 fw-bold">
+                <i class="bi bi-stars me-2 text-warning"></i>平台特色
+            </h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h5>安全可靠</h5>
+                        <p class="text-muted">所有群组经过严格审核，保证信息真实可靠</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto" style="background: linear-gradient(135deg, #f093fb, #f5576c); color: white;">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <h5>实时更新</h5>
+                        <p class="text-muted">24小时不间断更新，不错过任何优惠信息</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="text-center">
+                        <div class="feature-icon mx-auto" style="background: linear-gradient(135deg, #4facfe, #00f2fe); color: white;">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h5>活跃社群</h5>
+                        <p class="text-muted">百万活跃用户，互助氛围浓厚</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+                <!-- 声明公告 -->
+        <section class="mt-5 pt-5 border-top">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-warning border-0" style="background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%); border-left: 4px solid #ffc107 !important;">
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h5 class="fw-bold mb-3">关于加强打击虚假刷单行为的公告</h5>
+                                <p class="mb-3">为了维护平台的健康发展和用户权益，我们郑重声明：<br>严禁任何形式的虚假刷单行为。一经发现，将立即封禁账号并保留追究法律责任的权利。</p>
+                                <div class="d-flex flex-wrap gap-2 mb-3">
+                                    <a href="#" class="btn btn-outline-warning btn-sm">查看详情</a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">举报违规</a>
+                                    <a href="#" class="btn btn-outline-info btn-sm">用户协议</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center">
+                                    <i class="bi bi-shield-exclamation text-warning" style="font-size: 4rem;"></i>
+                                    <p class="small text-muted mt-2 mb-0">微薄利 · 运营团队</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- 品牌信息 -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        
+                        <h5 class="mb-0 fw-bold">微薄利商城</h5>
+                    </div>
+                    <p class="text-secondary mb-0">汇集全网优质优惠信息，让省钱变得简单</p>
+                </div>
+                
+                <!-- 快速链接 -->
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="mb-3 fw-semibold">快速链接</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="#groups" class="text-secondary text-decoration-none">微信群</a>
+                        <span class="text-secondary">·</span>
+                        <a href="#features" class="text-secondary text-decoration-none">特色功能</a>
+                        <span class="text-secondary">·</span>
+                        <a href="#about" class="text-secondary text-decoration-none">关于我们</a>
+                    </div>
+                </div>
+                
+                <!-- 联系方式 -->
+                <div class="col-lg-4 col-md-12">
+                    <h6 class="mb-3 fw-semibold">联系我们</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="mailto:contact@dazhe.com" class="text-secondary text-decoration-none d-flex align-items-center">
+                            <i class="bi bi-envelope me-2"></i>Sales@vblly.com
+                        </a>
+                        <a href="tel:400-123-4567" class="text-secondary text-decoration-none d-flex align-items-center">
+                            <i class="bi bi-telephone me-2"></i>0539-8703700
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 分割线和版权信息 -->
+            <hr class="my-4 opacity-25">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-secondary mb-0">© 2025 临沂市微薄利信息技术有限公司. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <div class="d-flex flex-wrap justify-content-md-end gap-3">
+                        <a href="https://beian.miit.gov.cn/" target="_blank" class="text-secondary text-decoration-none small">
+                            <i class="bi bi-shield-check me-1"></i>鲁ICP备2025144109号-6
+                        </a>
+                        <a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="text-secondary text-decoration-none small">
+                            <i class="bi bi-police-badge me-1"></i>鲁公网安备37130202372520号
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 加入群组按钮点击事件
+        document.querySelectorAll('.join-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.group-card');
+                const groupName = card.querySelector('h5').textContent;
+                
+                // 创建提示模态框
+                const modal = document.createElement('div');
+                modal.className = 'modal fade';
+                modal.innerHTML = `
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">加入群组</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <p>您要加入 <strong>${groupName}</strong></p>
+                                <div class="qr-code-placeholder" style="width: 200px; height: 200px; margin: 20px auto;">
+                                    <i class="bi bi-qr-code display-1"></i>
+                                </div>
+                                <p class="text-muted">请使用微信扫描二维码加入群组</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary">已扫描</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+                const bootstrapModal = new bootstrap.Modal(modal);
+                bootstrapModal.show();
+                
+                modal.addEventListener('hidden.bs.modal', function () {
+                    document.body.removeChild(modal);
+                });
+            });
+        });
+
+        // 搜索功能
+        document.querySelector('.input-group button').addEventListener('click', function() {
+            const searchValue = document.querySelector('.form-control').value.toLowerCase();
+            const groupCards = document.querySelectorAll('.group-card');
+            
+            groupCards.forEach(card => {
+                const groupName = card.querySelector('h5').textContent.toLowerCase();
+                const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                const match = groupName.includes(searchValue) || tags.some(tag => tag.includes(searchValue));
+                
+                if (searchValue === '' || match) {
+                    card.closest('.col-lg-4, .col-md-6').style.display = '';
+                } else {
+                    card.closest('.col-lg-4, .col-md-6').style.display = 'none';
+                }
+            });
+        });
+
+        // 搜索框回车事件
+        document.querySelector('.form-control').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.input-group button').click();
+            }
+        });
+    </script>
+</body>
+</html>
